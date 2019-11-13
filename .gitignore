@@ -26,12 +26,9 @@ proguard/
 # Log Files
 *.log
 
-
-
 # IntelliJ
 *.iml
-.idea/
+/.idea
 
-
-
-
+/gradlew
+/gradlew.bat
