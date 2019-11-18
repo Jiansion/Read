@@ -22,9 +22,7 @@ class PlantDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentPlantDetailBinding>(
-            inflater, R.layout.fragment_plant_detail, container, false
-        )
+        val binding = FragmentPlantDetailBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
         return binding.root
     }
