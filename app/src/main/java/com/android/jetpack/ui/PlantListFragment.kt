@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment
 /**
  * @author: YeJian
  * @email: amazeconch@gmail.com
- * Create on: 2019/11/13
+ * Create on: 2019/11/18
  * Instructions:
  **/
-class ProductListFragment : Fragment() {
+class PlantListFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
