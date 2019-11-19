@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
 
 android {
     compileSdkVersion build_versions.target_sdk
@@ -30,9 +32,18 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+    sourceSets { main { assets.srcDirs = ['src/main/assets'] } }
 }
 
 dependencies {
+    kapt deps.lifecycle.compiler
+    kapt deps.room.compiler
+    kapt deps.glide.compiler
+
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation deps.core_ktx
     implementation deps.kotlin_stdlib_jdk7
@@ -54,19 +65,21 @@ dependencies {
 
     implementation deps.lifecycle.runtime
     implementation deps.lifecycle.extensions
-    annotationProcessor deps.lifecycle.compiler
 
 
     implementation deps.room.runtime
-    annotationProcessor deps.room.compiler
+    implementation deps.room.ktx
 
+
+    implementation deps.work.runtime_ktx
+
+    implementation deps.gson
 
     implementation deps.retrofit.runtime
     implementation deps.retrofit.gson
     implementation deps.okhttp_logging_interceptor
 
     implementation deps.glide.runtime
-    annotationProcessor deps.glide.compiler
 
 
     testImplementation deps.junit

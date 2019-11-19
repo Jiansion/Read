@@ -26,16 +26,20 @@ versions.glide = "4.9.0"
 versions.fragment = "1.2.0-alpha04"
 versions.navigation = "2.0.0"
 versions.viewpage_2 = "1.0.0-rc01"
-versions.material="1.2.0-alpha01"
+versions.material = "1.2.0-alpha01"
+versions.work = "2.1.0"
+versions.gson = "2.8.2"
 
 
 def deps = [:]
 
 deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
 deps.kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+deps.navigation_safe_args_gradle_plugin = "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
 deps.core_ktx = "androidx.core:core-ktx:$versions.ktx"
 deps.kotlin_stdlib_jdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
 deps.junit = "junit:junit:$versions.junit"
+deps.gson = "com.google.code.gson:gson:$versions.gson"
 
 
 def support = [:]
@@ -56,9 +60,9 @@ def viewpage_2 = [:]
 viewpage_2.runtime = "androidx.viewpager2:viewpager2:$versions.viewpage_2"
 deps.viewpage_2 = viewpage_2
 
-def material=[:]
-material.material="com.google.android.material:material:$versions.material"
-deps.material=material
+def material = [:]
+material.material = "com.google.android.material:material:$versions.material"
+deps.material = material
 
 
 def navigation = [:]
@@ -70,7 +74,6 @@ deps.navigation = navigation
 def lifecycle = [:]
 lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime:$versions.lifecycle"
 lifecycle.extensions = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
-lifecycle.java8 = "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
 lifecycle.compiler = "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
 deps.lifecycle = lifecycle
 
@@ -78,7 +81,13 @@ deps.lifecycle = lifecycle
 def room = [:]
 room.runtime = "androidx.room:room-runtime:$versions.room"
 room.compiler = "androidx.room:room-compiler:$versions.room"
+room.ktx = "androidx.room:room-ktx:$versions.room"
 deps.room = room
+
+def work = [:]
+work.runtime_ktx = "androidx.work:work-runtime-ktx:$versions.work"
+work.work_testing = "androidx.work:work-testing:$versions.work"
+deps.work = work
 
 
 def retrofit = [:]
@@ -100,5 +109,6 @@ def glide = [:]
 glide.runtime = "com.github.bumptech.glide:glide:$versions.glide"
 glide.compiler = "com.github.bumptech.glide:compiler:$versions.glide"
 deps.glide = glide
+
 
 ext.deps = deps

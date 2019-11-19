@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="hasPlantings"
+            type="boolean" />
+
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-    </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_garden"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/card_side_margin"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:layout_marginEnd="@dimen/card_side_margin"
+            android:clipToPadding="false"
+            app:isGone="@{!hasPlantings}"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:spanCount="@integer/grid_columns"
+            tools:listitem="@layout/item_garden_planting" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:isGone="@{hasPlantings}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/garden_empty"
+                android:textAppearance="?attr/textAppearanceHeadline5" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_add_plant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_plant"
+                android:textColor="?attr/colorPrimary"
+                app:backgroundTint="?attr/colorOnPrimary"
+                app:shapeAppearance="@style/ShapeAppearance.Sunflower.Button.Add" />
+        </LinearLayout>
+
+
+    </FrameLayout>
 </layout>

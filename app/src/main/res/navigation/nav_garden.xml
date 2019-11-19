@@ -2,12 +2,11 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/view_pager_fragment">
+    app:startDestination="@+id/view_pager_fragment">
 
     <fragment
         android:id="@+id/view_pager_fragment"
-        android:name="com.android.jetpack.ui.HomeViewPagerFragment"
-        tools:layout="@layout/fragment_home_view_pager">
+        android:name="com.android.jetpack.ui.HomeViewPagerFragment">
 
         <action
             android:id="@+id/action_view_pager_fragment_to_plant_detail_fragment"
@@ -21,7 +20,7 @@
     <fragment
         android:id="@+id/plant_detail_fragment"
         android:name="com.android.jetpack.ui.PlantDetailFragment"
-        android:label="Plant details"
+        android:label="@string/plant_details_title"
         tools:layout="@layout/fragment_plant_detail">
 
         <argument
