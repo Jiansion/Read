@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.android.jetpack.databinding.FragmentPlantListBinding
 
 /**
  * @author: YeJian
@@ -19,6 +20,8 @@ class PlantListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+        val binding = FragmentPlantListBinding.inflate(inflater, container, false)
+
+        return binding.root
     }
 }
