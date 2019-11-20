@@ -16,7 +16,7 @@ class PlantAndGardenPlantingsViewModel(plantings: PlantAndGardenPlantings) {
 
     val waterDateString: String = dateFormat.format(gardenPlanting.lastWateringDate.time)
 
-    val waterinInterval get() = plant.wateringInterval
+    val wateringInterval get() = plant.wateringInterval
 
     val imageUrl get() = plant.imageUrl
 
